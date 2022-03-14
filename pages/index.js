@@ -4,6 +4,8 @@ import styles from '../styles/Home.module.css';
 import Banner from '../components/Banner/Banner.component';
 import NavBar from '../components/NavBar/NavBar';
 import Card from '../components/Card/Card.component';
+import CardSection from '../components/CardSection/CardSection.component';
+import { videos } from '../data/data';
 
 export default function Home() {
 	return (
@@ -23,9 +25,15 @@ export default function Home() {
 				subTitle='A very cute dog'
 				imgUrl='/static/clifford.webp'
 			/>
-			<Card imgUrl='/static/clifford.d' size='large' />
-			<Card imgUrl='/static/clifford.webp' size='medium' />
-			<Card imgUrl='/static/clifford.webp' size='small' />
+			<div className={styles.sectionWrapper}>
+				<CardSection title='Disney' size='large' videos={videos} />
+				<CardSection title='Watch Again' size='small' videos={videos} />
+				<CardSection
+					title='Productivity'
+					size='medium'
+					videos={videos}
+				/>
+			</div>
 		</div>
 	);
 }
