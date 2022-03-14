@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import Banner from '../components/Banner/Banner.component';
+import NavBar from '../components/NavBar/NavBar';
+import Card from '../components/Card/Card.component';
 
 export default function Home() {
 	return (
@@ -15,12 +17,15 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<h1>NextFlix</h1>
+			<NavBar userName='gaijincoach@hotmail.com' />
 			<Banner
 				title='Clifford the Red Dog'
 				subTitle='A very cute dog'
 				imgUrl='/static/clifford.webp'
 			/>
+			<Card imgUrl='/static/clifford.d' size='large' />
+			<Card imgUrl='/static/clifford.webp' size='medium' />
+			<Card imgUrl='/static/clifford.webp' size='small' />
 		</div>
 	);
 }
