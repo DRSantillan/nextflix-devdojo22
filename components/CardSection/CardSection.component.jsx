@@ -9,7 +9,7 @@ import Card from '../Card/Card.component'
 import css from './CardSection.module.scss'
 
 // 
-const CardSection = ({title, size, videos}) => {
+const CardSection = ({title, size, videos = []}) => {
 
     const videosToDisplay = videos.map((video, index) => (
 		<Card key={index} id={index} imgUrl={video.imgUrl} size={size} />
