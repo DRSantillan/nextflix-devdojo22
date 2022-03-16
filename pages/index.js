@@ -10,21 +10,24 @@ export const getServerSideProps = async () => {
 	const disneyVideos = await getVideos('disney trailers');
 	const travelVideos = await getVideos('travel');
 	const productivityVideos = await getVideos('productivity');
-	//const popularVideos = await getVideos('popular');
+	const popularVideos = await getVideos();
 
-	
-	
 	return {
 		props: {
 			disneyVideos,
 			travelVideos,
 			productivityVideos,
-			////popularVideos,
+			popularVideos,
 		},
 	};
 };
 
-export default function Home({ disneyVideos, travelVideos, productivityVideos }) {
+export default function Home({
+	disneyVideos,
+	travelVideos,
+	productivityVideos,
+	popularVideos,
+}) {
 	//const disneyVideos = getVideos();
 
 	return (
@@ -37,34 +40,35 @@ export default function Home({ disneyVideos, travelVideos, productivityVideos })
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-
-			<NavBar userName='gaijincoach@hotmail.com' />
-			<Banner
-				title='Clifford the Red Dog'
-				subTitle='A very cute dog'
-				imgUrl='/static/clifford.webp'
-			/>
-			<div className={styles.sectionWrapper}>
-				<CardSection
-					title='Disney'
-					size='large'
-					videos={disneyVideos}
+			<div className={styles.main}>
+				<NavBar userName='gaijincoach@hotmail.com' />
+				<Banner
+					title='Clifford the Red Dog'
+					subTitle='A very cute dog'
+					imgUrl='/static/clifford.webp'
 				/>
-				<CardSection
-					title='Travel'
-					size='small'
-					videos={travelVideos}
-				/>
-				<CardSection
-					title='Productivity'
-					size='medium'
-					videos={productivityVideos}
-				/>
-				{/* <CardSection
-					title='Popular'
-					size='medium'
-					videos={popularVideos}
-				/> */}
+				<div className={styles.sectionWrapper}>
+					<CardSection
+						title='Disney'
+						size='large'
+						videos={disneyVideos}
+					/>
+					<CardSection
+						title='Travel'
+						size='small'
+						videos={travelVideos}
+					/>
+					<CardSection
+						title='Productivity'
+						size='medium'
+						videos={productivityVideos}
+					/>
+					<CardSection
+						title='Popular'
+						size='medium'
+						videos={popularVideos}
+					/>
+				</div>
 			</div>
 		</div>
 	);
